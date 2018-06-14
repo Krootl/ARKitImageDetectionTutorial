@@ -20,6 +20,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let scene = SCNScene()
+        sceneView.scene = scene
         sceneView.delegate = self
     }
     
@@ -68,7 +70,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         let appearanceAction = SCNAction.scale(to: CGFloat(finalRatio), duration: 0.4)
         appearanceAction.timingMode = .easeOut
         // Set initial scale to 0.
-        planeNode.scale = SCNVector3Make(0, 0, 0)
+        planeNode.scale = SCNVector3Make(0.001, 0.001, 0.001)
         // Add to root node.
         sceneView.scene.rootNode.addChildNode(planeNode)
         // Run the appearance animation.
